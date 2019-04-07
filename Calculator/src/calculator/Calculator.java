@@ -83,3 +83,38 @@ public class Calculator implements ActionListener{
         container.add(button);
         return button;
     }
+
+
+    public void calculate() throws Exception {
+    	String getText = fields[0].getText();
+        String valueOf = String.valueOf(getText.length());
+        fields[1].setText(valueOf);
+    }
+           
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("Расчет")) {
+            try {
+                calculate();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Проверьте правильность ввода");
+            }
+        }else{
+            for(int i=0; i<fields.length; i++){
+                fields[i].setText("");
+            }
+        }
+    }
+    
+    
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Calculator();
+            }
+        });
+    }
+
+}
