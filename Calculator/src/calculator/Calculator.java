@@ -36,3 +36,35 @@ public class Calculator implements ActionListener{
                 fields[i] = addTextField(panelRight);}
 
         }
+
+
+        JButton calc = addButton(panelBottom, "Расчет");
+        calc.addActionListener(this);
+        JButton reset = addButton(panelBottom, "Сброс");
+        reset.addActionListener(this);
+
+
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+        frame.setSize(450,200);
+        JLabel top = new JLabel("Первое поле является обязательным для заполнения");
+        top.setHorizontalAlignment(JLabel.CENTER);
+
+        frame.add(top, BorderLayout.NORTH);
+        frame.add(panelLeft, BorderLayout.WEST);
+        frame.add(panelRight, BorderLayout.EAST);
+        frame.add(panelBottom, BorderLayout.SOUTH);
+        frame.setResizable(false);
+
+    }
+
+
+    public void addLabel(JComponent container, String name, Color color){
+        JLabel label = new JLabel(name);
+        label.setMaximumSize(new Dimension(200,20));
+        label.setForeground(color);
+        label.setHorizontalAlignment(JLabel.RIGHT);
+        label.setBorder(new EtchedBorder());
+        container.add(label);
+    }
