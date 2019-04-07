@@ -68,3 +68,18 @@ public class Calculator implements ActionListener{
         label.setBorder(new EtchedBorder());
         container.add(label);
     }
+
+    public JTextField addTextField(JComponent container){
+        JTextField field = new JTextField();
+        field.setMaximumSize(new Dimension(350,20));
+        container.add(field);
+        return field;
+    }
+
+    public JButton addButton(JComponent container, String name){
+        JButton button = new JButton(name);
+        button.setMaximumSize(new Dimension(100,20));
+        button.setHorizontalAlignment(JButton.CENTER);
+        container.add(button);
+        return button;
+    }
